@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+// import { IBM_Plex_Sans } from "next/font/google"
 import "./globals.css";
 
 const geistSans = localFont({
@@ -12,6 +13,11 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
+
+// const fontSans = IBM_Plex_Sans({
+//   subsets: ["latin"],
+//   weight: ["300", "400", "500", "700"],
+// })
 
 export const metadata: Metadata = {
   title: "Create Next App",
