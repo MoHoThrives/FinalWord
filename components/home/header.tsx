@@ -1,3 +1,4 @@
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import { Gavel } from "lucide-react";
 import Link from "next/link";
 
@@ -47,7 +48,9 @@ export default function Header() {
         lg:items-center"
       >
         <NavLink href="/#pricing">Pricing</NavLink>
-        <NavLink href="/#posts">Your Posts</NavLink>
+        <SignedIn>
+          <NavLink href="/#posts">Your Posts</NavLink>
+        </SignedIn>
       </div>
 
       <div
@@ -55,10 +58,18 @@ export default function Header() {
       lg:justify-end lg:flex-1"
       >
         <div className="flex gap-2 items-center">
-          <NavLink href="/dashboard">Upload a Video</NavLink>
           {/* User Profile */}
+          <SignedIn>
+            <NavLink href="/dashboard">Upload a Video</NavLink>
+            <UserButton />
+          </SignedIn>
         </div>
-        <NavLink href="/sign-in">Sign In</NavLink>
+
+        <SignedOut>
+          <SignInButton>
+            <NavLink href="/sign-in">Sign In</NavLink>
+          </SignInButton>
+        </SignedOut>
       </div>
     </nav>
   );
