@@ -10,12 +10,16 @@ export default function Pricing() {
       description: "Get started with Final Word",
       price: "10",
       items: ["3 blog posts", "3 Transcriptions"],
+      paymentLink: "https://buy.stripe.com/test_eVaeYO9NX51bb6gaEE",
+      priceId: process.env.NODE_ENV === "development" ? "price_1Py2oUKxsCMktW7DaOikNvmR" : "",
     },
     {
       name: "Pro",
       description: "Unlimited blog posts!",
       price: "19.99",
       items: ["Unlimited blog posts", "Unlimited Transcriptions"],
+      paymentLink: "https://buy.stripe.com/test_7sI9EuaS12T30rC289",
+      priceId: process.env.NODE_ENV === "development" ? "price_1Py2oUKxsCMktW7DzagUgYEZ" : ""
     },
   ];
 
@@ -31,7 +35,7 @@ export default function Pricing() {
           className="relative flex justify-center flex-col lg:flex-row 
           items-center lg:items-stretch gap-8"
         >
-          {plansMap.map(({ name, description, price, items }, idx) => (
+          {plansMap.map(({ name, description, price, items, paymentLink }, idx) => (
             <div className="relative w-full max-w-lg" key={idx}>
               <div
                 className={cn(
@@ -71,7 +75,7 @@ export default function Pricing() {
                     className={cn("border-2 rounded-full flex gap-2", name === "Pro" && "border-black px-3")}
                     variant="link"
                   >
-                    <Link href="/" className="flex gap-1 items-center ">
+                    <Link href={paymentLink} className="flex gap-1 items-center ">
                       Get Final Word <ArrowRight size={18} />
                     </Link>
                   </Button>

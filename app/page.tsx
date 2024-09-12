@@ -1,7 +1,7 @@
 // import { Button } from "@/components/ui/button";
 import BgGradient from "@/components/common/bg-gradient";
 import Banner from "@/components/home/banner";
-import Header from "@/components/home/header";
+// import Header from "@/components/home/header";
 import HowItWorks from "@/components/home/howitworks";
 import Pricing from "@/components/home/pricing";
 // import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
@@ -23,7 +23,7 @@ export default function Home() {
       </SignedIn> */}
       {/* <div className="bg-gradient-to-br from-yellow-300 via-white to-white"></div> */}
       <BgGradient />
-      <Header />
+      
       <Banner />
       <div className="flex items-center justify-center">
         <Dot className="text-orange-400"></Dot>
