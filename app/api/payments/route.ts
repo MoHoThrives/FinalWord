@@ -1,3 +1,4 @@
+import { handleCheckoutSessionCompleted } from "@/lib/payment-helpers";
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 
@@ -51,6 +52,8 @@ export async function POST(req: NextRequest) {
           }
         );
         console.log({ session });
+        //create or update user in db
+        await handleCheckoutSessionCompleted({ session, stripe })
         break;
       }
 
